@@ -1,9 +1,20 @@
-Nama : Farhan Mawaludin
-NIM : 2341720258
-Kelas : 1-B
-Mata Kuliah : Algoritma dan Struktur Data
+# <p align ="center"> LAPORAN PRAKTIKUM ALGORITMA DAN STRUKTUR DATA </p>
 
-2.1.1 Langkah-langkah Percobaan
+<br><br><br><br>
+
+<p align="center">
+   <img src="https://static.wikia.nocookie.net/logopedia/images/8/8a/Politeknik_Negeri_Malang.png/revision/latest?cb=20190922202558" width="30%"> </p>
+
+<br><br><br><br><br>
+
+<p align = "center"> Nama  : Farhan Mawaludin </p>
+<p align = "center"> NIM   : 2341720258 </p>
+<p align = "center"> Prodi : TEKNIK INFOMATIKA</p>
+<p align = "center"> Kelas : 1B </p>
+<br><br>
+
+<h2>1.1 Langkah-langkah Percobaan</h2>
+
 public class Buku11 {
 
     String judul;
