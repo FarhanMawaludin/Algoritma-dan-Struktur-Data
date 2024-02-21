@@ -14,7 +14,7 @@
 <br><br>
 
 <h2>1.1 Langkah-langkah Percobaan</h2>
-
+``` java
 public class Buku11 {
 
     String judul;
@@ -49,4 +49,7 @@ public class Buku11 {
 
 }
 
+```
+
 ![alt text](image.png)
+```
