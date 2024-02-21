@@ -1,8 +1,5 @@
 public class Buku11 {
 
-    Buku11() {
-
-    }
     String judul;
     String pengarang;
     int halaman;
@@ -20,7 +17,12 @@ public class Buku11 {
 
     
     void terjual(int jml) {
-        stok -= jml;
+        if (stok > 0) {
+            stok -= jml;
+            System.out.println(jml + " buku terjual.");
+        } else {
+            System.out.println("Stok habis, tidak dapat melakukan penjualan.");
+        }
     }
 
     
@@ -32,15 +34,6 @@ public class Buku11 {
     void gantiHarga(int hrg) {
         harga = hrg;
     }
-
-    public Buku11(String jud, String pg, int hal, int stok, int har){
-        judul = jud;
-        pengarang = pg;
-        halaman = hal;
-        this.stok=stok;
-        harga=har;
-    }
-  
     
 }
 

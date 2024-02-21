@@ -13,43 +13,25 @@
 <p align = "center"> Kelas : 1B </p>
 <br><br>
 
-<h2>1.1 Langkah-langkah Percobaan</h2>
-``` java
-public class Buku11 {
+## 2.1 Percobaan 1: Deklarasi Class, Atribut dan Method<br>
 
-    String judul;
-    String pengarang;
-    int halaman;
-    int stok;
-    int harga;
-
-
-    void tampilInformasi() {
-        System.out.println("Judul: " + judul);
-        System.out.println("Pengarang: " + pengarang);
-        System.out.println("Jumlah Halaman: " + halaman);
-        System.out.println("Stok Tersedia: " + stok);
-        System.out.println("Harga: Rp" + harga);
-    }
-
-
-    void terjual(int jml) {
-        stok -= jml;
-    }
-
-
-    void restock(int jml) {
-        stok += jml;
-    }
-
-
-    void gantiHarga(int hrg) {
-        harga = hrg;
-    }
-
-}
-
-```
-
+<h5>2.1.1 SS PRAKTIKUM 1</h5>
+![alt text](image-1.png)
+<br>
+<h5>2.1.2 SS VERIFIKASI HASIL PERCOBAAN</h5>
 ![alt text](image.png)
-```
+<br>
+<h2>Pertanyaan</h2>
+
+1. Sebutkan dua karakteristik class atau object!<br>
+   jawab : karakteristik Atribut yang dimiliki oleh objek dari kelas tersebut.sedangkan Method ini merepresentasikan perilaku atau tindakan yang dapat dilakukan oleh objek dari kelas tersebut.
+2. Perhatikan class Buku pada Praktikum 1 tersebut, ada berapa atribut yang dimiliki oleh class
+   Buku? Sebutkan apa saja atributnya!<br>
+   Jawab : Pada class buku terdapat 5 atribut yaitu judul (String),pengarang (String),halaman (int),stok (int),harga (int).
+3. Ada berapa method yang dimiliki oleh class tersebut? Sebutkan apa saja methodnya!<br>
+   Jawab : Pada class buku terdapat 4 method yaitu tampilInformasi(), terjual(int jml), restock(int jml), gantiHarga(int hrg)
+4. Perhatikan method terjual() yang terdapat di dalam class Buku. Modifikasi isi method tersebut
+   sehingga proses pengurangan hanya dapat dilakukan jika stok masih ada (lebih besar dari 0)!<br>
+   Jawab: <br>![alt text](<ss/Screenshot 2024-02-21 112528.png>)
+5. Menurut Anda, mengapa method restock() mempunyai satu parameter berupa bilangan int?<br>
+6. Commit dan push kode program ke Github
