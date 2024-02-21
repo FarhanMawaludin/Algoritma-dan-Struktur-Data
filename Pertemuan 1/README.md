@@ -16,11 +16,15 @@
 ## 2.1 Percobaan 1: Deklarasi Class, Atribut dan Method<br>
 
 <h5>2.1.1 SS PRAKTIKUM 1</h5>
+
 ![alt text](image-5.png)
 <br>
+
 <h5>2.1.2 SS VERIFIKASI HASIL PERCOBAAN</h5>
+
 ![alt text](image-6.png)
 <br>
+
 <h2>Pertanyaan</h2>
 
 1. Sebutkan dua karakteristik class atau object!<br>
