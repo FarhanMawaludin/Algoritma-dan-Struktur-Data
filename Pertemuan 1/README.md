@@ -16,10 +16,10 @@
 ## 2.1 Percobaan 1: Deklarasi Class, Atribut dan Method<br>
 
 <h5>2.1.1 SS PRAKTIKUM 1</h5>
-![alt text](image-1.png)
+![alt text](image-3.png)
 <br>
 <h5>2.1.2 SS VERIFIKASI HASIL PERCOBAAN</h5>
-![alt text](image.png)
+![alt text](image-2.png)
 <br>
 <h2>Pertanyaan</h2>
 
@@ -32,6 +32,6 @@
    Jawab : Pada class buku terdapat 4 method yaitu tampilInformasi(), terjual(int jml), restock(int jml), gantiHarga(int hrg)
 4. Perhatikan method terjual() yang terdapat di dalam class Buku. Modifikasi isi method tersebut
    sehingga proses pengurangan hanya dapat dilakukan jika stok masih ada (lebih besar dari 0)!<br>
-   Jawab: <br>![alt text](<ss/Screenshot 2024-02-21 112528.png>)
+   Jawab: <br>![alt text](image-4.png)
 5. Menurut Anda, mengapa method restock() mempunyai satu parameter berupa bilangan int?<br>
 6. Commit dan push kode program ke Github
