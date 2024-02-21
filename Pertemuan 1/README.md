@@ -48,3 +48,5 @@ public class Buku11 {
     }
 
 }
+
+![alt text](image.png)
