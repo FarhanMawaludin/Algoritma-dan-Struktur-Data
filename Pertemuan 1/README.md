@@ -57,9 +57,6 @@ public class Buku11 {
 
 ```
 
-![alt text](image-5.png)
-<br>
-
 ### 2.1.2 SS VERIFIKASI HASIL PERCOBAAN
 
 ![alt text](image-6.png)
@@ -89,8 +86,6 @@ public class Buku11 {
    }
 
    ```
-
-   <br>![alt text](image-10.png)
 
 5. Menurut Anda, mengapa method restock() mempunyai satu parameter berupa bilangan int?<br>
    Jawab : karena parameter tersebut digunakan untuk menentukan jumlah buku yang akan ditambahkan ke stok.
