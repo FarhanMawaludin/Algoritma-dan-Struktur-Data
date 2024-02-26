@@ -14,14 +14,16 @@ public class Dragon11 {
     void moveLeft() {
         if (x > 0) {
             x--;
+            printPosition();
         } else {
             detectCollision(x, y); 
         }
     }
 
     void moveRight() {
-        if (x < width - 1) {
+        if (x < width ) {
             x++;
+            printPosition();
         } else {
             detectCollision(x, y); 
         }
@@ -30,14 +32,16 @@ public class Dragon11 {
     void moveUp() {
         if (y > 0) {
             y--;
+            printPosition();
         } else {
             detectCollision(x, y); 
         }
     }
 
     void moveDown() {
-        if (y < height - 1) {
+        if (y < height) {
             y++;
+            printPosition();
         } else {
             detectCollision(x, y); 
         }

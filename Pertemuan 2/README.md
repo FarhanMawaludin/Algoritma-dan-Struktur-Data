@@ -211,27 +211,43 @@ Buku11 bk2 = new Buku11("Self Reward", "Maaheera Ayesha", 160, 29, 59000);
 
 ```java
     int hitungHargaTotal(){
-        return harga*terjual;
+        int hargaTotal = harga * terjual;
+        return hargaTotal;
     }
 
     int hitungDiskon(){
-        int hargaTotal = hitungHargaTotal();
-        if(hargaTotal > 150000){
-            return hargaTotal * 12/100;
-        }else if(hargaTotal >= 75000 && hargaTotal<=150000){
-            return hargaTotal* 5/100;
-        }else{
+        int total = hitungHargaTotal();
+        if(total > 150000){
+            return (total * 12 / 100);
+        } else if(total >= 75000 && total <= 150000){
+            return (total * 5 / 100);
+        } else {
             return 0;
         }
     }
 
     int hitungHargaBayar(){
-        int hargaTotal = hitungHargaTotal();
+        int total = hitungHargaTotal();
         int diskon = hitungDiskon();
-        return hargaTotal - diskon;
+        int hargaBayar = total - diskon;
+        return hargaBayar;
     }
 
 ```
+
+### Output Program
+
+```java
+Buku11 NamaMahasiswa = new Buku11("manusia biasa", "Maman Supratman", 200, 50, 50000);
+        NamaMahasiswa.tampilInformasi();
+        NamaMahasiswa.terjual(25);
+        System.out.println("Harga Total: " + NamaMahasiswa.hitungHargaTotal());
+        System.out.println("Diskon: " + NamaMahasiswa.hitungDiskon());
+        System.out.println("Harga Bayar: " + NamaMahasiswa.hitungHargaBayar());
+```
+
+Output :<br>
+![alt text](image-19.png)
 
 ### Soal 2
 
@@ -252,14 +268,16 @@ public class Dragon11 {
     void moveLeft() {
         if (x > 0) {
             x--;
+            printPosition();
         } else {
             detectCollision(x, y);
         }
     }
 
     void moveRight() {
-        if (x < width - 1) {
+        if (x < width ) {
             x++;
+            printPosition();
         } else {
             detectCollision(x, y);
         }
@@ -268,14 +286,16 @@ public class Dragon11 {
     void moveUp() {
         if (y > 0) {
             y--;
+            printPosition();
         } else {
             detectCollision(x, y);
         }
     }
 
     void moveDown() {
-        if (y < height - 1) {
+        if (y < height) {
             y++;
+            printPosition();
         } else {
             detectCollision(x, y);
         }
@@ -292,3 +312,21 @@ public class Dragon11 {
 
 }
 ```
+
+```java
+public class DragonMain11 {
+    public static void main(String[] args) {
+        Dragon11  dragon = new Dragon11 (0, 0,15,15);
+        dragon.moveLeft();
+        dragon.moveRight();
+        dragon.moveUp();
+        dragon.moveDown();
+
+    }
+}
+
+```
+
+### Ouput Program
+
+![alt text](image-20.png)

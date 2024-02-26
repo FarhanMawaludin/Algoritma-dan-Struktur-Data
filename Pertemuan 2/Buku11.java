@@ -8,7 +8,17 @@ public class Buku11 {
     int terjual;
     
 
-   
+    Buku11(){
+
+    }
+
+    public Buku11(String jud, String pg, int hal, int stok, int har) {
+        judul=jud;
+        pengarang=pg;
+        halaman=hal;
+        this.stok=stok;
+        harga=har;    
+    }
     
     void tampilInformasi() {
         System.out.println("Judul: " + judul);
@@ -21,8 +31,9 @@ public class Buku11 {
     
     void terjual(int jml) {
         if (stok > 0 && stok >=jml) {
-            jml = terjual;
+            terjual=jml;
             stok -= jml;
+            
             System.out.println(jml + " buku terjual.");
         } else {
             System.out.println("Stok habis, tidak dapat melakukan penjualan.");
@@ -35,43 +46,34 @@ public class Buku11 {
     }
 
     
-    int gantiHarga(int hrg) {
+    void gantiHarga(int hrg) {
         harga = hrg;
-        return  harga;
     }
 
     int hitungHargaTotal(){
-        return harga*terjual;
+        int hargaTotal = harga * terjual;
+        return hargaTotal;
     }
-
+    
     int hitungDiskon(){
-        int hargaTotal = hitungHargaTotal();
-        if(hargaTotal > 150000){
-            return hargaTotal * 12/100;
-        }else if(hargaTotal >= 75000 && hargaTotal<=150000){
-            return hargaTotal* 5/100;
-        }else{
+        int total = hitungHargaTotal();
+        if(total > 150000){
+            return (total * 12 / 100);
+        } else if(total >= 75000 && total <= 150000){
+            return (total * 5 / 100);
+        } else {
             return 0;
         }
     }
-
+    
     int hitungHargaBayar(){
-        int hargaTotal = hitungHargaTotal();
+        int total = hitungHargaTotal();
         int diskon = hitungDiskon();
-        return hargaTotal - diskon;
+        int hargaBayar = total - diskon;
+        return hargaBayar;
     }
 
-    Buku11(){
-
-    }
-
-    public Buku11(String jud, String pg, int hal, int stok, int har) {
-        judul=jud;
-        pengarang=pg;
-        halaman=hal;
-        this.stok=stok;
-        harga=har;    
-    }
+    
 }
 
 

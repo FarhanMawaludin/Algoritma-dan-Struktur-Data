@@ -22,8 +22,12 @@ public class BukuMain11 {
         bk2.tampilInformasi();
 
         Buku11 NamaMahasiswa = new Buku11("manusia biasa", "Maman Supratman", 200, 50, 50000);
-        NamaMahasiswa.terjual(25);
         NamaMahasiswa.tampilInformasi();
+        NamaMahasiswa.terjual(25);
+        System.out.println("Harga Total: " + NamaMahasiswa.hitungHargaTotal());
+        System.out.println("Diskon: " + NamaMahasiswa.hitungDiskon());
+        System.out.println("Harga Bayar: " + NamaMahasiswa.hitungHargaBayar());
+
         
     }
 }
