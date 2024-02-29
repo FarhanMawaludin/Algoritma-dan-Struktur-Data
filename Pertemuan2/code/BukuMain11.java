@@ -27,7 +27,6 @@ public class BukuMain11 {
         System.out.println("Harga Total: " + NamaMahasiswa.hitungHargaTotal());
         System.out.println("Diskon: " + NamaMahasiswa.hitungDiskon());
         System.out.println("Harga Bayar: " + NamaMahasiswa.hitungHargaBayar());
-
         
     }
 }
