@@ -9,11 +9,13 @@ public class bola11 {
 
 
     public double hitungLuasBola(){
-        return (4 * 3.14 * jari);
+        double luasPermukaan = 4 * Math.PI * Math.pow(jari, 2);
+        return luasPermukaan;
     }
 
     public double hitungVolumeBola(){
-        return (4/3 * 3.14 * jari * jari * jari);
+        double volume = (4.0 / 3.0) * Math.PI * Math.pow(jari, 3);
+        return volume;
 
     }
  }

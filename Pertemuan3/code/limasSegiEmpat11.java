@@ -7,10 +7,15 @@ public class limasSegiEmpat11 {
     
 
     public double  hitungLuasLimas(){
-        return((panjangSisiAlas*panjangSisiAlas) + 4 * (1/2 * panjangSisiAlas * tinggi));
+        double luasAlas = panjangSisiAlas * panjangSisiAlas;
+        double luasSisiTegak = panjangSisiAlas * tinggi;
+        double luasPermukaan = luasAlas + (4 * luasSisiTegak);
+        return luasPermukaan;
     }
 
     public double hitungVolumeLimas(){
-        return (1.0/3 * panjangSisiAlas * panjangSisiAlas * tinggi);
+        double luasAlas = panjangSisiAlas * panjangSisiAlas;
+        double volume = (1.0 / 3.0) * luasAlas * tinggi;
+        return volume;
     }
 }
