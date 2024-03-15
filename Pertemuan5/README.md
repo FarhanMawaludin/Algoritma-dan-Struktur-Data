@@ -218,4 +218,34 @@ public class MainPangkat11 {
        }
    ```
 4. Tambahkan menu agar salah satu method yang terpilih saja yang akan dijalankan menggunakan switch-case!<br>
-   Jawab :
+   Jawab : modifikasi<br>
+
+   ```java
+   System.out.println("Pilih metode perhitungan pangkat:");
+        System.out.println("1. Brute Force");
+        System.out.println("2. Divide and Conquer");
+        System.out.print("Masukan Pilihan :");
+        int pilihan = input11.nextInt();
+
+        switch (pilihan) {
+            case 1:
+                System.out.println("HASIL PANGKAT - BRUTE FORCE");
+                for (int i = 0; i < png.length; i++) {
+                    System.out.println("Hasil dari " + png[i].nilai + " pangkat " + png[i].pangkat + " adalah " + png[i].pangkatBF());
+                }
+                break;
+            case 2:
+                System.out.println("HASIL PANGKAT - DIVIDE AND CONQUER");
+                for (int i = 0; i < png.length; i++) {
+                    System.out.println("Hasil dari " + png[i].nilai + " pangkat " + png[i].pangkat + " adalah " + png[i].pangkatDC());
+                }
+                break;
+            default:
+                System.out.println("Pilihan tidak valid");
+                break;
+        }
+   ```
+
+```
+
+```
