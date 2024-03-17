@@ -1,6 +1,6 @@
 # <p align ="center"> LAPORAN PRAKTIKUM ALGORITMA DAN STRUKTUR DATA </p>
 
-## <p align ="center"> PERTEMUAN IV <br> BRUTE FORCE DAN DIVIDE CONQUER </p>
+## <p align ="center"> PERTEMUAN V <br> BRUTE FORCE DAN DIVIDE CONQUER </p>
 
 <br><br><br><br>
 
