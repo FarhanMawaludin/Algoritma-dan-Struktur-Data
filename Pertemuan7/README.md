@@ -373,3 +373,153 @@ public class MergeSortingMain11 {
 <br>
 
 ![alt text](image-11.png)
+
+# 6.5. Latihan Praktikum
+
+1. Modifikasi percobaan searching diatas dengan ketentuan berikut ini
+
+- Ubah tipe data dari kode Buku yang awalnya int menjadi String <br>
+  Jawab :
+
+```java
+public class Buku11{
+    int  tahunTerbit,stok;
+    String judul,pengarang, kodeBuku;
+
+    Buku11(String kodeBuku, String judul, int tahunTerbit, String pengarang, int stok){
+        this.kodeBuku = kodeBuku;
+        this.judul=judul;
+        this.tahunTerbit = tahunTerbit;
+        this.pengarang = pengarang;
+        this.stok = stok;
+    }
+```
+
+- Tambahkan method untuk pencarian kode Buku (bertipe data String) dengan menggunakan sequential search dan binary search.<br>
+  Jawab :
+  <b>sequential search</b><br>
+
+```java
+public int FindSeqSearch(String cari){
+        int posisi = -1;
+        for (int j = 0 ; j <listBK.length; j++){
+            if (listBK[j].kodeBuku.equals(cari)){
+                posisi = j;
+                break;
+            }
+        }
+        return posisi;
+    }
+```
+
+<b>binary search</b><br>
+
+```java
+public int FindBinarySearch(String cari, int left, int right){
+        int mid;
+        if (right >= left){
+            mid = left + (right - left) / 2;
+            if ( cari.equals(listBK[mid].kodeBuku)){
+                return mid;
+            }else if (listBK[mid].kodeBuku.compareTo(cari) > 0){
+                return FindBinarySearch(cari, left, mid -1);
+            }else {
+                return FindBinarySearch (cari, mid +1, right);
+            }
+        }
+        return -1;
+    }
+```
+
+<br>
+
+2. Modifikasi percobaan searching diatas dengan ketentuan berikut ini
+
+- Tambahkan method pencarian judul buku menggunakan sequential search dan binary search. Sebelum dilakukan searching dengan binary search data harus dilakukan pengurutan dengan menggunakan algoritma Sorting (bebas pilih algoritma sorting apapun)! Sehingga ketika input data acak, maka algoritma searching akan tetap berjalan.<br>
+  Jawab :
+  <b>Sequential Search judul</b><br>
+
+```java
+public int findJudulSequential(String judul) {
+        int posisi = -1;
+        for (int j = 0; j < listBK.length; j++) {
+            if (listBK[j].judul.equals(judul)) {
+                posisi = j;
+                break;
+            }
+        }
+        return posisi;
+    }
+```
+
+<b>Binary Search judul</b><br>
+
+```java
+ public int findJudulBinary(String judul) {
+        bubbleSortByJudul();
+        int left = 0;
+        int right = listBK.length - 1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            int compareResult = listBK[mid].judul.compareTo(judul);
+            if (compareResult == 0) {
+                return mid;
+            } else if (compareResult < 0) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return -1;
+    }
+```
+
+<b>Pengurutan</b><br>
+
+```java
+private void bubbleSortByJudul() {
+        for (int i = 0; i < listBK.length - 1; i++) {
+            for (int j = 0; j < listBK.length - i - 1; j++) {
+                if (listBK[j].judul.compareTo(listBK[j + 1].judul) > 0) {
+                    Buku11 temp = listBK[j];
+                    listBK[j] = listBK[j + 1];
+                    listBK[j + 1] = temp;
+                }
+            }
+        }
+    }
+```
+
+- Buat aturan untuk mendeteksi hasil pencarian judul buku yang lebih dari 1 hasil dalam bentuk kalimat peringatan! Pastikan algoritma yang diterapkan sesuai dengan kasus yang diberikan!<br>
+  Jawab :
+
+```java
+ int jumlahJudulSequential = 0;
+                for (Buku11 buku : data.listBK) {
+                    if (buku != null && buku.judul.equals(cariJudul)) {
+                        jumlahJudulSequential++;
+                    }
+                }
+                if (jumlahJudulSequential > 1) {
+                    System.out.println("Peringatan: Terdapat lebih dari satu hasil dengan judul buku '" + cariJudul + "'!");
+                }
+```
+
+```java
+for (Buku11 buku : data.listBK) {
+                    if (buku != null && buku.judul.equals(cariJudul)) {
+                        jumlahJudulBinary++;
+                    }
+                }
+                if (jumlahJudulBinary > 1) {
+                    System.out.println("Peringatan: Terdapat lebih dari satu hasil dengan judul buku '" + cariJudul + "'!");
+                }
+```
+
+<b>OUTPUT BERDASARKAN SEARCH KODE BUKU</b><br>
+
+![alt text](image-12.png)
+
+<b>OUTPUT BERDASARKAN SEARCH JUDUL BUKU</b><br>
+
+![alt text](image-13.png)
