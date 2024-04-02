@@ -12,15 +12,17 @@ public class BukuMain11 {
         for (int i = 0; i < jumBuku; i++) {
             System.out.println("---------------------");
             System.out.print("Kode Buku : ");
-            String kodeBuku = s1.next();
+            String kodeBuku = s1.nextLine();
             System.out.print("Judul  Buku : ");
-            String judulBuku = s1.next();
+            String judulBuku = s1.nextLine();
             System.out.print("Tahun Terbit : ");
             int tahunTerbit = s.nextInt();
             System.out.print("Pengarang : ");
-            String pengarang = s1.next();
+            String pengarang = s1.nextLine();
             System.out.print("stok : ");
             int stok = s.nextInt();
+            
+            
 
             Buku11 m = new Buku11(kodeBuku, judulBuku, tahunTerbit, pengarang, stok);
             data.tambahBuku(m);
@@ -28,7 +30,7 @@ public class BukuMain11 {
 
         System.out.println("---------------------------------------");
         System.out.println("Data Keseluruhan Buku : ");
-        data.tampilDataBuku();
+        data.tampil();
 
         System.out.println("---------------------------------------");
         System.out.println("---------------------------------------");

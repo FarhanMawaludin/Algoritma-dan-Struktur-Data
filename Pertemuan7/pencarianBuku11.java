@@ -11,7 +11,7 @@ public class pencarianBuku11 {
         }
     }
 
-    public void tampilDataBuku(){
+    public void tampil(){
         for (Buku11 m : listBK){
             m.tampilDataBuku();
         }
