@@ -5,8 +5,9 @@ import Pertemuan3.code.segitiga11;
 public class Utama11 {
     public static void main(String[] args) {
         Scanner input11 = new Scanner(System.in);
+        Scanner input = new Scanner ( System.in);
         System.out.print("Masukan Kapasitas Gudang: ");
-        int kap = input11.nextInt();
+        int kap = input.nextInt();
         Gudang11 gudang = new Gudang11(kap);
        
 
@@ -15,8 +16,10 @@ public class Utama11 {
             System.out.println("1. Tambah Barang");
             System.out.println("2. Ambil Barang");
             System.out.println("3. Lihat Barang Teratas");
-            System.out.println("4. Tampilkan Barang Tumpukan");
-            System.out.println( "5. Keluar Program");
+            System.out.println("4. Lihat Barang Terbawah");
+            System.out.println("5. Cari Barng");
+            System.out.println("6. Tampilkan Barang Tumpukan");
+            System.out.println( "7. Keluar Program");
             System.out.print("Pilih Operasi : ");
             int pilihan = input11.nextInt();
             
@@ -41,10 +44,20 @@ public class Utama11 {
                  break;
 
                  case 4:
-                 gudang.tampilBarang();;
+                 gudang.lihatBarangTerbawah();
                  break;
 
                  case 5:
+                 System.out.print("Masukan Barang : ");
+                 String nama1 = input11.next();
+                 gudang.cariBarang(nama1);
+                 break;
+
+                 case 6:
+                 gudang.tampilBarang();;
+                 break;
+
+                 case 7:
                  break;
 
                  default:

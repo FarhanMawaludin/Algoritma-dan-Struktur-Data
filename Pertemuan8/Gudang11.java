@@ -43,6 +43,7 @@ public class Gudang11 {
             Barang11 delete = tumpukan[top];
             top--;
             System.out.println("Barang " + delete.nama + " diambil dari Gudang");
+            System.out.println("Kode unik dalam biner: " + konversiDesimalKeBiner(delete.kode));
             return delete;
         }else{
             System.out.println("Tumpukan barang kosong");
@@ -72,7 +73,66 @@ public class Gudang11 {
         }
     }
 
+    public String konversiDesimalKeBiner(int kode){
+        StackKonversi11 stack = new StackKonversi11();
+        while (kode > 0) {
+            int sisa = kode % 2 ;
+            stack.push(sisa);
+            kode = kode/ 2;
+        }
+        String biner = new String();
+        while (!stack.isEmpty()){
+            biner = biner + stack.pop();
+        }
+        return biner;
 
+    }
 
-    
+    public Barang11 lihatBarangTerbawah() {
+        if (!cekKosong()) {
+            Barang11 barangTerbawah = tumpukan[0];
+            System.out.println("Barang teratas: " + barangTerbawah.nama);
+            return barangTerbawah;
+        } else {
+            System.out.println("Tumpukan barang kosong.");
+            return null;
+        }
+    }
+
+    public void cariBarang(String key) {
+        boolean ditemukan = false;
+
+        for (int j=0; j<=top; j++) {
+            try {
+                int kodeKey = Integer.parseInt(key);
+                if (tumpukan[j].nama.equalsIgnoreCase(key) || tumpukan[j].kode == kodeKey) {
+                    System.out.println("Barang ditemukan!");
+                    ditemukan = true;
+                    System.out.println("Kode Barang: "+ tumpukan[j].kode);
+                    System.out.println("nama Barang: "+ tumpukan[j].nama);
+                    System.out.println("Kategori Barang: "+ tumpukan[j].kategori);
+                    return;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("");
+                break;
+            }
+        }
+
+        for (int j=0; j<=top; j++) {
+            if (tumpukan[j].nama.equalsIgnoreCase(key)){
+                System.out.println("Barang ditemukan!");
+                System.out.println("Kode Barang: "+ tumpukan[j].kode);
+                System.out.println("nama Barang: "+ tumpukan[j].nama);
+                System.out.println("Kategori Barang: "+ tumpukan[j].kategori);
+                return;
+            } else {
+                System.out.println("");
+            }
+        }
+
+        if (!ditemukan) {
+            System.out.println("Barang tidak ditemukan!");
+        }  
+    }    
 }

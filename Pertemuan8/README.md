@@ -223,4 +223,303 @@ Gudang11 gudang = new Gudang11(7);
         Gudang11 gudang = new Gudang11(kap);
     ```
 
-5. Commit dan push kode program ke Github
+5. Commit dan push kode program ke Github <br>
+   Jawab : ![alt text](image-1.png)
+
+# 2.2 Percobaan 2: Konversi Kode Barang ke Biner
+
+<b>Menambahkan Method KonversiDesimalKeBiner</b><br>
+
+```java
+public String konversiDesimalKeBiner(int kode){
+        StackKonversi11 stack = new StackKonversi11();
+        while (kode > 0) {
+            int sisa = kode % 2 ;
+            stack.push(sisa);
+            kode = kode/ 2;
+        }
+        String biner = new String();
+        while (!stack.isEmpty()){
+            biner = biner + stack.pop();
+        }
+        return biner;
+    }
+```
+
+<br><b> Membuat class StackKonversi</b><br>
+
+```java
+package Pertemuan8;
+
+public class StackKonversi11 {
+
+    int size ;
+    int [] tumpukanBiner;
+    int top;
+    public StackKonversi11(){
+        this.size = 32;
+        tumpukanBiner = new int[size];
+        top = -1;
+    }
+
+    public boolean isEmpty(){
+        return top == -1;
+    }
+
+    public boolean isFull(){
+        return top == size-1;
+    }
+
+    public void push(int data){
+        if(isFull()){
+            System.out.println("Stack Penuh");
+        }else {
+            top++;
+            tumpukanBiner[top]= data;
+        }
+    }
+
+    public int pop(){
+        if (isEmpty()) {
+            System.out.println("Stack Kosong");
+            return -1;
+        }else {
+            int data = tumpukanBiner[top] ;
+            top--;
+            return data;
+        }
+    }
+}
+```
+
+<br><b>Menambahkankan baris pada method ambilBarang()</b><br>
+
+```java
+System.out.println("Kode unik dalam biner: " + konversiDesimalKeBiner(delete.kode));
+```
+
+<br><b> Output </b><br>
+
+![alt text](image-2.png)
+
+## 2.2.3 Pertanyaan
+
+1. Pada method konversiDesimalKeBiner, ubah kondisi perulangan menjadi while (kode != 0), bagaimana hasilnya? Jelaskan alasannya! <br>
+   Jawab : Hasilnya sama jika kondisi while dirubah, karena maksud dari kedua kondisi sama dimana kode tidak boleh bernilai nol. tapi jika menggunakan <b>!=0</b> jika kode barangnya negatif kode binernya tetap keluar tetapi jika menggunakan <b> > 0 </b> saat kode barangnya negatif kode binernya tidaak keluar.
+2. Jelaskan alur kerja dari method konversiDesimalKeBiner! <br>
+   Jawab : membuat inisialisasi stack untuk menyimpan sisa pembagian, kemudian bilangan desimal dibagi terus dengan 2 dan sisa pembagiannya disimpan dalam stack. setelah itu sisa pembagian tadi yang disimpan dalam stack akan diambil satu persatu dan digabungkan menjadi bilanga biner kemudian pengembalian nilai biner sebagai hasil konversi
+
+# 2.3 Percobaan 3: Konversi Notasi Infix ke Postfix
+
+<b> Kode Postfix11 </b><br>
+
+```java
+package Pertemuan8;
+
+public class Postfix11 {
+    int n;
+    int top;
+    char[] stack;
+
+    public Postfix11 (int total){
+        n = total;
+        top = -1;
+        stack = new char[n];
+        push('(');
+
+    }
+
+    public void push(char c) {
+        top++;
+        stack[top] = c;
+    }
+
+    public char pop() {
+        char item = stack[top];
+        top--;
+        return item;
+    }
+
+    public boolean IsOperand(char c) {
+        if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') ||
+                (c >= '0' && c <= '9') || c == ' ' || c == '.') {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean IsOperator(char c) {
+        if (c == '^' || c == '%' || c == '/' || c == '*' || c == '-' || c == '+') {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public int derajat(char c) {
+        switch (c) {
+            case '^':
+                return 3;
+            case '%':
+                return 2;
+            case '/':
+                return 2;
+            case '*':
+                return 2;
+            case '-':
+                return 1;
+            case '+':
+                return 1;
+            default:
+                return 0;
+        }
+    }
+
+    public String konversi(String Q) {
+        String P = "";
+        char c;
+        for (int i=0; i<n; i++) {
+            c = Q.charAt(i);
+            if (IsOperand(c)) {
+                P = P + c;
+            }
+            if (c == '(') {
+                push(c);
+            }
+            if (c == ')') {
+                while (stack[top] != '(') {
+                    P = P + pop();
+                }
+                pop();
+            }
+            if (IsOperator(c)) {
+                while (derajat(stack[top]) >= derajat(c)) {
+                    P = P + pop();
+                }
+                push(c);
+            }
+        }
+        return P;
+    }
+}
+```
+
+<br><b> Kode PostfixMain11 </b><br>
+
+```java
+package Pertemuan8;
+
+import java.util.Scanner;
+
+public class PostfixMain11 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String P, Q;
+        System.out.println("Masukkan ekspresi matematika (infix): ");
+        Q = sc.nextLine();
+        Q = Q.trim();
+        Q = Q + ")";
+
+        int total = Q.length();
+
+        Postfix11 post = new Postfix11(total);
+        P = post.konversi(Q);
+        System.out.println("Postfix: " + P);
+    }
+}
+
+```
+
+<br><b> Output </b><br>
+
+![alt text](image-3.png)
+
+<br>
+
+## 2.3.3 Pertanyaan
+
+1. Pada method derajat, mengapa return value beberapa case bernilai sama? Apabila return value diubah dengan nilai berbeda-beda setiap case-nya, apa yang terjadi? <br>
+   Jawab : return vsluenys bernilai sama karena beberpa case operatornya memeiliki prioritas yang sama.
+2. Jelaskan alur kerja method konversi! <br>
+   Jawab : Iterasi melalui setiap karakter dalam ekspresi infix.
+   Jika karakter adalah operand, tambahkan ke ekspresi postfix.
+   Jika karakter adalah '(' (kurung buka), dorong ke dalam stack.
+   Jika karakter adalah ')' (kurung tutup), pop operator dari stack dan tambahkan ke ekspresi postfix hingga ditemukan '(' (kurung buka).
+   Jika karakter adalah operator, pop operator-operator dengan prioritas yang lebih tinggi atau sama dari stack dan tambahkan ke ekspresi postfix, kemudian dorong operator saat ini ke dalam stack
+3. Pada method konversi, apa fungsi dari potongan kode berikut? <br>
+
+```java
+ c = Q.charAt(i);
+```
+
+Jawab : digunakan untuk mengambil karakter pada posisi indeks i dari string Q, yang merupakan ekspresi infix yang akan dikonversi menjadi postfix
+
+# 2.4 Latihan Praktikum
+
+Perhatikan dan gunakan kembali kode program pada Percobaan 1. Tambahkan dua method berikut pada class Gudang:
+
+- Method lihatBarangTerbawah digunakan untuk mengecek barang pada tumpukan terbawah<br>
+
+```java
+public Barang11 lihatBarangTerbawah() {
+        if (!cekKosong()) {
+            Barang11 barangTerbawah = tumpukan[0];
+            System.out.println("Barang teratas: " + barangTerbawah.nama);
+            return barangTerbawah;
+        } else {
+            System.out.println("Tumpukan barang kosong.");
+            return null;
+        }
+    }
+```
+
+<br><b> Output</b><br>
+
+![alt text](image-4.png) <br>
+
+- Method cariBarang digunakan untuk mencari ada atau tidaknya barang berdasarkan kode barangnya atau nama barangnya<br>
+
+```java
+public void cariBarang(String key) {
+        boolean ditemukan = false;
+
+        for (int j=0; j<=top; j++) {
+            try {
+                int kodeKey = Integer.parseInt(key);
+                if (tumpukan[j].nama.equalsIgnoreCase(key) || tumpukan[j].kode == kodeKey) {
+                    System.out.println("Barang ditemukan!");
+                    ditemukan = true;
+                    System.out.println("Kode Barang: "+ tumpukan[j].kode);
+                    System.out.println("nama Barang: "+ tumpukan[j].nama);
+                    System.out.println("Kategori Barang: "+ tumpukan[j].kategori);
+                    return;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("");
+                break;
+            }
+        }
+
+        for (int j=0; j<=top; j++) {
+            if (tumpukan[j].nama.equalsIgnoreCase(key)){
+                System.out.println("Barang ditemukan!");
+                System.out.println("Kode Barang: "+ tumpukan[j].kode);
+                System.out.println("nama Barang: "+ tumpukan[j].nama);
+                System.out.println("Kategori Barang: "+ tumpukan[j].kategori);
+                return;
+            } else {
+                System.out.println("");
+            }
+        }
+
+        if (!ditemukan) {
+            System.out.println("Barang tidak ditemukan!");
+        }
+    }
+```
+
+<br><b> Output</b><br>
+
+![alt text](image-5.png)<br>
+![alt text](image-6.png)
