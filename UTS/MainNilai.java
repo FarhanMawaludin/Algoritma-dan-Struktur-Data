@@ -1,8 +1,7 @@
 package UTS;
-import java.util.Scanner;
+
 public class MainNilai {
-    public static void main(String[] args) {
-        Scanner input11 = new Scanner(System.in);
+    public static void main(String[] args) {    
         NilaiMahasiswa maha = new NilaiMahasiswa();
         int jumMaha=17;
 
