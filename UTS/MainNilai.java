@@ -2,7 +2,7 @@ package UTS;
 
 public class MainNilai {
     public static void main(String[] args) {    
-        NilaiMahasiswa maha = new NilaiMahasiswa();
+        NilaiMahasiswa maha = new NilaiMahasiswa(); 
         int jumMaha=17;
 
         Mahasiswa m1 = new Mahasiswa(43);
