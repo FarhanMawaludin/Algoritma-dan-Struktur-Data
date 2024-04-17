@@ -33,10 +33,10 @@ public class DaftarMahasiswaBerprestasi11 {
         }
     }
 
-    void selectionSort(){
+    void selectionSortAscen(){
             for (int i = 0; i < listMhs.length; i++) {
                 int idxMin = i;
-                for (int j = i + 1; j < listMhs.length; j++) {
+                for (int j = i+1; j < listMhs.length; j++) {
                     if (listMhs[j].ipk < listMhs[idxMin].ipk) {
                         idxMin = j;
                     }
