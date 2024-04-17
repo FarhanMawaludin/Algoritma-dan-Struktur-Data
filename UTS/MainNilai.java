@@ -1,6 +1,6 @@
 package UTS;
 import java.util.Scanner;
-public class MainTinggi {
+public class MainNilai {
     public static void main(String[] args) {
         Scanner input11 = new Scanner(System.in);
         NilaiMahasiswa maha = new NilaiMahasiswa();
