@@ -227,5 +227,21 @@ i = (i+1) % max ;
  Jawab : digunakan untuk mengatur ulang nilai i dengan mod agar indeks i kembali ke 0 setelah mencapai max-1<br>
 
 6. Tunjukkan potongan kode program yang merupakan queue overflow! <br>
-   Jawab :ketika mencoba menambahkan elemen kedalam antrian saat antrian sudah penuh ketika pada kondisi IsFull() bernilai true
-7. Pada saat terjadi queue overflow dan queue underflow, program tersebut tetap dapat berjalan dan hanya menampilkan teks informasi. Lakukan modifikasi program sehingga pada saat terjadi queue overflow dan queue underflow, program dihentikan!
+   Jawab :ketika mencoba menambahkan elemen kedalam antrian saat antrian sudah penuh ketika pada kondisi IsFull() bernilai true<br>
+7. Pada saat terjadi queue overflow dan queue underflow, program tersebut tetap dapat berjalan dan hanya menampilkan teks informasi. Lakukan modifikasi program sehingga pada saat terjadi queue overflow dan queue underflow, program dihentikan!<br>
+   Jawab :
+
+```java
+public void Enqueue(int dt){
+        if (IsFull()){
+            System.out.println("Queue sudah penuh");
+            System.exit(0);
+```
+
+```java
+public int Dequeue(){
+        int dt =0;
+        if(IsEmpty()) {
+            System.out.println("Queue masih kosong");
+            System.exit(0);
+```
