@@ -12,7 +12,7 @@ public class QueueMain {
 
         int pilih;
         do {
-            Queue11.menu();
+            Queue11.Menu();
             pilih = sc.nextInt();
 
             switch (pilih) {

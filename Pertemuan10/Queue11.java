@@ -67,7 +67,7 @@ public class Queue11 {
     public void Enqueue(int dt){
         if (IsFull()){
             System.out.println("Queue sudah penuh");
-            System.exit(0);
+            System.exit(1);
         }else{
             if(IsEmpty()){
                 front = rear = 0;
@@ -87,7 +87,7 @@ public class Queue11 {
         int dt =0;
         if(IsEmpty()) {
             System.out.println("Queue masih kosong");
-            System.exit(0);
+            System.exit(1);
         }else{
             dt = data[front];
             size--;
@@ -105,7 +105,7 @@ public class Queue11 {
 
     }
 
-    public static void menu(){
+    public static void Menu(){
         System.out.println("Masukan operasi yang diinginkan:");
         System.out.println("1. Enqueue");
         System.out.println("2. Dequeue");
