@@ -1,6 +1,5 @@
 package Pertemuan10;
 
-import javax.sound.midi.Soundbank;
 
 public class Queue11 {
     int[] data;
