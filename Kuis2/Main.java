@@ -6,7 +6,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         // Menambahkan klub ke dalam list
-        String[] clubNames = {
+        String[] namaTim = {
             "Prawira Harum Bandung", "Satria Muda Pertamina Jakarta", "Pelita Jaya Jakarta",
             "Dewa United Banten", "RANS PIK Basketball Club", "Bima Perkasa Jogja",
             "Bali United Basketball", "Bumi Borneo Basketball Pontianak", "Tangerang Hawks Basketball",
@@ -15,8 +15,8 @@ public class Main {
             "Satya Wacana Salatiga"
         };
 
-        for (String name : clubNames) {
-            list.addTim(new Tim(name));
+        for (String nama : namaTim) {
+            list.addTim(new Tim(nama));
         }
 
         // Input hasil pertandingan

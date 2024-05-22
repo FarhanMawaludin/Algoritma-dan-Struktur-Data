@@ -19,10 +19,10 @@ public class LinkedListTim {
         }
     }
 
-    public Tim findtim(String name) {
+    public Tim findtim(String nama) {
         Node current = head;
         while (current != null) {
-            if (current.tim.name.equalsIgnoreCase(name)) {
+            if (current.tim.nama.equalsIgnoreCase(nama)) {
                 return current.tim;
             }
             current = current.next;
