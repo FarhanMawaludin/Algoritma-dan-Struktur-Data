@@ -62,9 +62,7 @@ public class Main {
                 exit = true;
             }
         }
-
-        // Mengurutkan dan menampilkan klasemen
-        list.sorttims();
+        
         System.out.println("\nKlasemen IBL:");
         list.print();
     }
