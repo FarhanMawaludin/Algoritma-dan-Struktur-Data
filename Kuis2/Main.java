@@ -26,9 +26,9 @@ public class Main {
         list.print();
         while (!exit) {
             System.out.println("\nMasukkan hasil pertandingan:");
-            System.out.print("Tim 1: ");
+            System.out.print("Masukan nama Tim 1: ");
             tim1 = scanner.nextLine();
-            System.out.print("Tim 2: ");
+            System.out.print("Masukan nama Tim 2: ");
             tim2 = scanner.nextLine();
             System.out.print("Hasil (Tim 1 menang - 'W', Tim 1 kalah - 'L'): ");
             result = scanner.nextLine();
