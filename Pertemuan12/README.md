@@ -15,6 +15,8 @@
 <p align = "center"> Kelas : 1B </p>
 <br><br>
 
+
+# 12.2.1 Percobaan 1
 <b>Kode Node11</b>
 
 ``` java
@@ -174,3 +176,95 @@ Jawab : Jika double linked list sudah berisi node, node baru yang ditambahkan di
 Jawab : Node baru ditambahkan di akhir list, sehingga next bernilai null karena tidak ada node setelahnya, dan prev menunjuk ke node terakhir saat ini.<br>
 7. Pada method add(), terdapat potongan kode program sebagai berikut ... jelaskan maksud dari bagian yang ditandai dengan kotak kuning.<br>
 Jawab : Kode pada method add() menangani penyisipan node baru di awal list, memastikan node baru menjadi head baru.
+
+
+# 12.3.1 Percobaan 2
+
+<b>Tambahan percobaan 2</b>
+
+``` java
+public void removeFirst() throws Exception {
+    if (isEmpty()) {
+        throw new Exception("Linked List masih kosong, tidak dapat dihapus");
+    } else if (size == 1) {
+        removeLast();
+    } else {
+        head = head.next;
+        head.prev = null;
+        size--;
+        }
+    }
+
+public void removeLast() throws Exception {
+    if (isEmpty()) {
+        throw new Exception ("Linked List masih kosong, tidak dapat dihapus");
+    } else if (head.next == null) {
+        head = null;
+        size--;
+        return;
+    }
+
+    Node11 current = head;
+    while (current.next.next != null) {
+        current = current.next;
+    }
+    current.next = null;
+    size--;
+    }
+
+public void removeAt(int index) throws Exception {
+    if (isEmpty() || index >= size) {
+        throw new Exception("Nilai indeks diluar batas");
+    } else if (index == 0) {
+        removeFirst();
+    } else {
+        Node11 current = head;
+        int i = 0;
+        while (i < index) {
+            current = current.next;
+            i++;
+        }
+        if (current.next == null) {
+            current.prev.next= null;
+        } else if (current.prev == null) {
+            current = current.next;
+            current.prev=null;
+            head = current;
+        } else {
+            current.prev.next = current.next;
+            current.next.prev = current.prev;
+        }
+        size--;
+        }
+    }
+```
+
+<br><b>tambahan di kelas main</b><br>
+
+``` java
+dll.addLast(50);
+        dll.addLast(40);
+        dll.addLast(10);
+        dll.addLast(20);
+        dll.print();
+        System.out.println("Size  : " + dll.size());
+        System.out.println("=============================================");
+        dll.removeFirst();
+        dll.print();
+        System.out.println("Size  : " + dll.size());
+        System.out.println("=============================================");
+        dll.removeLast();
+        dll.print();
+        System.out.println("Size  : " + dll.size());
+        System.out.println("=============================================");
+        dll.removeAt(1);
+        dll.print();
+        System.out.println("Size  : " + dll.size());
+        System.out.println("=============================================");
+    }
+```
+
+
+<br><b>Output</b>
+
+![alt text](image-1.png)
