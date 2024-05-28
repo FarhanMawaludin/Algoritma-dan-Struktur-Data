@@ -84,7 +84,7 @@ public class doubleLinkedList {
                 System.out.print(tmp.data + "\t");
                 tmp = tmp.next;
             }
-            System.out.println();
+            System.out.println("Berhasil diisi");
         }else{
             System.out.println("Linked List Kosong");
         }

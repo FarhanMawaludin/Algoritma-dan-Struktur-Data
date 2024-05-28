@@ -268,3 +268,82 @@ dll.addLast(50);
 <br><b>Output</b>
 
 ![alt text](image-1.png)
+
+# 12.3.3 Pertanyaan Percobaan
+1. Apakah maksud statement berikut pada method removeFirst()?
+head = head.next;
+head.prev = null;<br>
+Jawab :Pada method removeFirst(), statement head = head.next; mengarahkan head ke node berikutnya dalam linked list, sehingga node pertama diabaikan. Kemudian, head.prev = null; menghapus referensi dari node kedua ke node pertama, sehingga node pertama sepenuhnya terputus dari linked list.<br>
+2. Bagaimana cara mendeteksi posisi data ada pada bagian akhir pada method removeLast()?<br>
+Jawab : Untuk mendeteksi posisi data di bagian akhir pada method removeLast(), pertama-tama dibuat variabel penunjuk yang mengarah ke node terakhir. Langkahnya adalah menelusuri linked list mulai dari head hingga menemukan node yang pointer next-nya null, yang menandakan bahwa node tersebut adalah node terakhir. Setelah node terakhir ditemukan, kita dapat mengubah pointer next dari node sebelumnya menjadi null, dan jika hanya ada satu node, kita mengatur head menjadi null.
+3. Jelaskan alasan potongan kode program di bawah ini tidak cocok untuk perintah remove!<br>
+Jawab : Dalam potongan kode ini, head.next berguna untuk menghubungkan node setelah node yang akan dihapus; namun, tmp.next tidak diatur menjadi null, sehingga masih ada referensi pada node yang akan dihapus dari daftar yang terhubung. Selain itu, sebelum menghapus node, pastikan bahwa atribut prev dari node setelah node yang dihapus juga diperbarui dengan benar.
+4. Jelaskan fungsi kode program berikut ini pada fungsi remove!<br>
+Jawab : Fungsi kode program tersebut pada fungsi remove adalah untuk menghapus node current dari linked list. Kode ini memastikan bahwa referensi next dan prev dari node sekitar current diperbarui dengan benar sehingga node current dapat dihapus tanpa merusak struktur linked list.
+
+
+# 12.4.1 Percobaan 3
+
+<br><b>tambahan kode percobaan 3</b><br>
+
+``` java
+public int getFirst() throws Exception {
+        if (isEmpty()) {
+            throw new Exception ("Linked List Kosong");
+        } else {
+            return head.data;
+        }
+    }
+    // method getlast
+    public int getLast() throws Exception {
+        if (isEmpty()) {
+            throw new Exception ("Linked List Kosong");
+        }
+        Node11 tmp = head;
+        while (tmp.next != null) {
+            tmp = tmp.next;
+        }
+        return tmp.data;
+    }
+
+    // method getindex
+    public int get(int index) throws Exception {
+        if (isEmpty() || index >= size) {
+            throw new Exception ("Nilai indeks diluar batas");
+        } 
+            Node11 tmp = head;
+            for (int i = 0; i < index; i++) {
+                tmp = tmp.next;
+            }
+            return tmp.data;
+        
+    }
+```
+
+<br><b>tambahan kode main percobaan 3</b><br>
+
+``` java
+dll.print();
+        System.out.println("Size  : " + dll.size());
+        System.out.println("=============================================");
+        dll.addFirst(3);
+        dll.addLast(4);
+        dll.addFirst(7);
+        dll.print();
+        System.out.println("Size  : " + dll.size());
+        System.out.println("=============================================");
+        dll.add (40, 1);
+        dll.print();
+        System.out.println("Size  : " + dll.size());
+        System.out.println("=============================================");
+        System.out.println("Data awal pada Linked Lists adalah: " + dll.getFirst());
+        System.out.println("Data akhir pada Linked Lists adalah: " + dll.getLast());
+        System.out.println("Data indeks ke-1 pada Linked Lists adalah: " + dll.get(1));
+        System.out.println("=============================================");
+```
+
+<br><b>output</b><br>
+
+![alt text](image-2.png)
+
+# Pertanyaan
