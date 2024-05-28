@@ -1,6 +1,6 @@
 # <p align ="center"> LAPORAN PRAKTIKUM ALGORITMA DAN STRUKTUR DATA </p>
 
-## <p align ="center"> PERTEMUAN IX <br> UTS </p>
+## <p align ="center"> PERTEMUAN IX <br> Double Linked List </p>
 
 <br><br><br><br>
 
