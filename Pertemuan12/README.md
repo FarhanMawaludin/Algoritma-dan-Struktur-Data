@@ -346,4 +346,474 @@ dll.print();
 
 ![alt text](image-2.png)
 
-# Pertanyaan
+# P12.4.3 Pertanyaan Percobaan
+1. Jelaskan method size() pada class DoubleLinkedLists!<br>
+Jawab: method size() pada class DoubleLinkedLists berfungsi untuk pengembalian jumlah elemen / size yang ada pada linkedlists<br>
+
+2. Jelaskan cara mengatur indeks pada double linked lists supaya dapat dimulai dari indeks ke- 1!<br>
+Jawab: cara mengatur indeks supaya mulai dari 1 adalah melakukan perubahan pada method get, yang dimana ada perubahan pada kode program
+
+``` java
+public int get(int index) throws Exception {
+if (isEmpty() || index > size || index < 1) {
+    throw new Exception("Nilai indeks diluar batas");
+}
+Node tmp = head;
+for (int i = 1; i <= index; i++) {
+    tmp = tmp.next;
+}
+return tmp.data;
+}
+```
+
+3. Jelaskan perbedaan karakteristik fungsi Add pada Double Linked Lists dan Single Linked Lists!<br>
+Jawab:<br>
+Single Linked List:
+
+- Pada Single Linked List, setiap node hanya memiliki satu pointer yang menunjuk ke node berikutnya.
+
+- pada saat menambahkan node baru di akhir daftar, diperlukan penelusuran dari node head hingga mencapai node terakhir. Karena tidak ada pointer yang menunjuk ke node sebelumnya, proses ini membutuhkan waktu O(n), di mana n adalah jumlah node dalam daftar.
+
+- pada saat menambahkan node baru di awal daftar, cukup mengubah pointer next dari node baru agar menunjuk ke node head saat ini, dan mengubah node head menjadi node baru.
+
+Double Linked List:
+
+- Pada Double Linked List, setiap node memiliki dua pointer, yaitu pointer yang menunjuk ke node sebelumnya dan pointer yang menunjuk ke node berikutnya.
+
+- pada saat menambahkan node baru di akhir daftar, tidak diperlukan penelusuran dari node head. Dan cukup mengubah pointer next dari node terakhir agar menunjuk ke node baru, dan mengubah pointer prev dari node baru agar menunjuk ke node terakhir sebelumnya. Proses ini membutuhkan waktu O(1) karena akses langsung ke node terakhir.
+
+- Pada saat menambahkan node baru di awal daftar, cukup mengubah pointer next dari node baru agar menunjuk ke node head saat ini, mengubah pointer prev dari node head saat ini agar menunjuk ke node baru, dan mengubah node head menjadi node baru.
+
+- Pada Double Linked List, penambahan node baru di awal atau akhir daftar membutuhkan waktu O(1) karena adanya akses langsung ke node head dan node tail.
+
+4. Jelaskan perbedaan logika dari kedua kode program di bawah ini!<br>
+
+![alt text](image-3.png)
+<br>
+Jawab :<br> 
+
+- a. Kode program pertama memanfaatkan variabel size untuk memeriksa apakah struktur data Double Linked Lists dalam keadaan kosong atau tidak. Pemeriksaan dilakukan dengan memeriksa apakah nilai variabel size sama dengan 0, yang mengindikasikan bahwa Double Linked Lists tidak memiliki elemen di dalamnya, sehingga dikembalikan nilai true yang menandakan Double Linked Lists dalam keadaan kosong. Sebaliknya, jika nilai variabel size tidak sama dengan 0, maka dikembalikan nilai false yang mengindikasikan bahwa Double Linked Lists tidak dalam keadaan kosong dan memiliki setidaknya satu elemen di dalamnya.
+
+- b. Kode program kedua menggunakan variabel head untuk menentukan apakah struktur data Single Linked Lists dalam keadaan kosong atau tidak. Pemeriksaan dilakukan dengan mengevaluasi apakah nilai variabel head sama dengan null, yang menjadi indikator bahwa Single Linked Lists tidak memiliki elemen di dalamnya, sehingga dikembalikan nilai true yang menandakan Single Linked Lists dalam keadaan kosong. Namun, jika nilai variabel head tidak sama dengan null, maka dikembalikan nilai false yang mengindikasikan bahwa Single Linked Lists tidak dalam keadaan kosong dan memiliki setidaknya satu elemen di dalamnya.
+
+
+
+# TUGAS 1
+
+<br><b>Kode Node111</b>
+
+``` java
+package Pertemuan12;
+
+public class Node111 {
+    
+        String data;
+        Node111 next;
+        Node111 prev;
+        
+        Node111(String data) {
+            this.data = data;
+            this.next = null;
+            this.prev = null;
+        }
+    
+    }   
+```
+
+<br><b>Kode Queue</b>
+
+``` java
+package Pertemuan12;
+
+public class Queue {
+    
+    Node111 front, rear;
+
+    Queue() {
+        this.front = this.rear = null;
+    }
+
+    void enqueue(String data) {
+        Node111 newNode = new Node111(data);
+        if (rear == null) {
+            front = rear = newNode;
+        } else {
+            rear.next = newNode;
+            newNode.prev = rear;
+            rear = newNode;
+        }
+        System.out.println(data + " telah ditambahkan ke dalam antrian.");
+    }
+
+    void dequeue() {
+        if (front == null) {
+            System.out.println("Antrian kosong, tidak ada yang dapat dihapus.");
+            return;
+        }
+        System.out.println(front.data + " telah selesai divaksinasi.");
+        front = front.next;
+        if (front != null) {
+            front.prev = null;
+        } else {
+            rear = null;
+        }
+    }
+
+    void print() {
+        if (front == null) {
+            System.out.println("Antrian kosong.");
+            return;
+        }
+        Node111 temp = front;
+        int noAntrian = 1;
+        System.out.println("| No Antrian | Nama          |");
+        System.out.println("|------------|---------------|");
+        while (temp != null) {
+            System.out.printf("| %-10d | %-13s |\n", noAntrian++, temp.data);
+            temp = temp.next;
+        }
+        System.out.println("Tersisa " + (noAntrian - 1) + " antrian.");
+    }
+
+    boolean isEmpty() {
+        return front == null;
+    }
+}
+```
+
+<br><b>Kode vaksinMain11</b>
+
+``` java
+package Pertemuan12;
+
+import java.util.Scanner;
+
+public class vaksinMain11 {
+    public static void main(String[] args) {
+        Queue queue = new Queue();
+        Scanner scanner = new Scanner(System.in);
+        int pilih;
+        String nama;
+        
+        do {
+            System.out.println("++++++++++++++++++++++++++++++");
+            System.out.println("PENGANTRI VAKSIN EKSTRAVAGANZA");
+            System.out.println("++++++++++++++++++++++++++++++");
+            System.out.println("\n1. Tambah data penerima vaksin");
+            System.out.println("2. Hapus data pengantri vaksin");
+            System.out.println("3. Daftar penerima vaksin");
+            System.out.println("4. Keluar");
+            System.out.println("++++++++++++++++++++++++++++++");
+            System.out.print("Pilihan: ");
+            pilih = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (pilih) {
+                case 1:
+                    System.out.println("-----------------------------");
+                    System.out.println("Masukkan Data Penerima Vaksin");
+                    System.out.println("-----------------------------");
+                    System.out.println("Nomor Antrian: ");
+                    scanner.nextLine();
+                    System.out.println("Nama Penerima: ");
+                    nama = scanner.nextLine();
+                    queue.enqueue(nama);
+                    break;
+                case 2:
+                    queue.dequeue();
+                    break;
+                case 3:
+                    queue.print();
+                    break;
+                case 4:
+                    System.out.println("Keluar dari program.");
+                    break;
+                default:
+                    System.out.println("Pilihan tidak valid. Silakan coba lagi.");
+            }
+        } while (pilih != 4);
+        scanner.close();
+    }
+}
+```
+
+<br><b>Output</b>
+
+![alt text](image-4.png) <br> ![alt text](image-5.png)
+
+
+# TUGAS 2
+
+<br><b>Kode film11</b>
+
+```java
+package Pertemuan12;
+
+class film11 {
+    int id;
+    String judul;
+    double rating;
+    film11 prev, next;
+    
+        film11 (int id, String judul, double rating) {
+            this.id = id;
+            this.judul = judul;
+            this.rating = rating;
+        }
+    }
+```
+<br><b>Kode doubleFilm11</b>
+
+``` java
+package Pertemuan12;
+
+class doublefilm11 {
+ 
+    private film11 head, tail;
+
+    public void tambahAwal(int id, String judul, double rating) {
+        film11 newfilm11 = new film11(id, judul, rating);
+        if (head == null) {
+            head = tail = newfilm11;
+        } else {
+            newfilm11.next = head;
+            head.prev = newfilm11;
+            head = newfilm11;
+        }
+    }
+
+    public void tambahAkhir(int id, String judul, double rating) {
+        film11 newfilm11 = new film11(id, judul, rating);
+        if (tail == null) {
+            head = tail = newfilm11;
+        } else {
+            tail.next = newfilm11;
+            newfilm11.prev = tail;
+            tail = newfilm11;
+        }
+    }
+
+    public void tambahPadaIndex(int index, int id, String judul, double rating) {
+        if (index <= 0) {
+            tambahAwal(id, judul, rating);
+            return;
+        }
+        
+        film11 newfilm11 = new film11(id, judul, rating);
+        film11 current = head;
+        for (int i = 0; i < index - 1; i++) {
+            if (current == null) {
+                break;
+            }
+            current = current.next;
+        }
+
+        if (current == null || current.next == null) {
+            tambahAkhir(id, judul, rating);
+        } else {
+            newfilm11.next = current.next;
+            newfilm11.prev = current;
+            current.next.prev = newfilm11;
+            current.next = newfilm11;
+        }
+    }
+
+    public void hapusPertama() {
+        if (head != null) {
+            if (head == tail) {
+                head = tail = null;
+            } else {
+                head = head.next;
+                head.prev = null;
+            }
+        }
+    }
+
+    public void hapusTerakhir() {
+        if (tail != null) {
+            if (head == tail) {
+                head = tail = null;
+            } else {
+                tail = tail.prev;
+                tail.next = null;
+            }
+        }
+    }
+
+    public void hapusPadaIndex(int index) {
+        if (index <= 0) {
+            hapusPertama();
+            return;
+        }
+
+        film11 current = head;
+        for (int i = 0; i < index; i++) {
+            if (current == null) {
+                return;
+            }
+            current = current.next;
+        }
+
+        if (current == null || current.prev == null) {
+            hapusTerakhir();
+        } else {
+            current.prev.next = current.next;
+            if (current.next != null) {
+                current.next.prev = current.prev;
+            }
+        }
+    }
+
+    public void cetak() {
+        film11 current = head;
+        while (current != null) {
+            System.out.println("ID: " + current.id + ", Judul: " + current.judul + ", Rating: " + current.rating);
+            current = current.next;
+        }
+    }
+
+    public film11 cariID(int id) {
+        film11 current = head;
+        while (current != null) {
+            if (current.id == id) {
+                return current;
+            }
+            current = current.next;
+        }
+        return null;
+    }
+
+    public void urutRatingDesc() {
+        if (head == null) return;
+        boolean swapped;
+        do {
+            swapped = false;
+            film11 current = head;
+            while (current.next != null) {
+                if (current.rating < current.next.rating) {
+                    double tempRating = current.rating;
+                    current.rating = current.next.rating;
+                    current.next.rating = tempRating;
+
+                    int tempId = current.id;
+                    current.id = current.next.id;
+                    current.next.id = tempId;
+
+                    String tempJudul = current.judul;
+                    current.judul = current.next.judul;
+                    current.next.judul = tempJudul;
+
+                    swapped = true;
+                }
+                current = current.next;
+            }
+        } while (swapped);
+    }
+}
+```
+
+<br><b>Kode filmMain11</b>
+
+``` java
+package Pertemuan12;
+
+import java.util.Scanner;
+
+public class filmMain11 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        doublefilm11 dll = new doublefilm11();
+        int choice, id, index;
+        String judul;
+        double rating;
+
+        do {
+            System.out.println("\nMenu:");
+            System.out.println("1. Tambah Data Awal");
+            System.out.println("2. Tambah Data Akhir");
+            System.out.println("3. Tambah Data Index Tertentu");
+            System.out.println("4. Hapus Data Pertama");
+            System.out.println("5. Hapus Data Terakhir");
+            System.out.println("6. Hapus Data Tertentu");
+            System.out.println("7. Cetak");
+            System.out.println("8. Cari ID Film");
+            System.out.println("9. Urut Data Rating Film-DESC");
+            System.out.println("10. Keluar");
+            System.out.print("Masukkan pilihan Anda: ");
+            choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Masukkan ID: ");
+                    id = scanner.nextInt();
+                    scanner.nextLine(); // flush scanner
+                    System.out.print("Masukkan Judul: ");
+                    judul = scanner.nextLine();
+                    System.out.print("Masukkan Rating: ");
+                    rating = scanner.nextDouble();
+                    dll.tambahAwal(id, judul, rating);
+                    break;
+                case 2:
+                    System.out.print("Masukkan ID: ");
+                    id = scanner.nextInt();
+                    scanner.nextLine(); // flush scanner
+                    System.out.print("Masukkan Judul: ");
+                    judul = scanner.nextLine();
+                    System.out.print("Masukkan Rating: ");
+                    rating = scanner.nextDouble();
+                    dll.tambahAkhir(id, judul, rating);
+                    break;
+                case 3:
+                    System.out.print("Masukkan Index: ");
+                    index = scanner.nextInt();
+                    System.out.print("Masukkan ID: ");
+                    id = scanner.nextInt();
+                    scanner.nextLine(); // flush scanner
+                    System.out.print("Masukkan Judul: ");
+                    judul = scanner.nextLine();
+                    System.out.print("Masukkan Rating: ");
+                    rating = scanner.nextDouble();
+                    dll.tambahPadaIndex(index, id, judul, rating);
+                    break;
+                case 4:
+                    dll.hapusPertama();
+                    break;
+                case 5:
+                    dll.hapusTerakhir();
+                    break;
+                case 6:
+                    System.out.print("Masukkan Index untuk dihapus: ");
+                    index = scanner.nextInt();
+                    dll.hapusPadaIndex(index);
+                    break;
+                case 7:
+                    dll.cetak();
+                    break;
+                case 8:
+                    System.out.print("Masukkan ID Film yang dicari: ");
+                    id = scanner.nextInt();
+                    film11 foundFilm = dll.cariID(id);
+                    if (foundFilm != null) {
+                        System.out.println("Film ditemukan: ID: " + foundFilm.id + ", Judul: " + foundFilm.judul + ", Rating: " + foundFilm.rating);
+                    } else {
+                        System.out.println("Film dengan ID tersebut tidak ditemukan.");
+                    }
+                    break;
+                case 9:
+                    dll.urutRatingDesc();
+                    break;
+                case 10:
+                    System.out.println("Keluar dari program.");
+                    break;
+                default:
+                    System.out.println("Pilihan tidak valid, coba lagi.");
+            }
+        } while (choice != 10);
+        scanner.close();
+    }
+}
+```
+
+<br><b>Output</b>
+
+![alt text](image-6.png) <br> ![alt text](image-7.png)
