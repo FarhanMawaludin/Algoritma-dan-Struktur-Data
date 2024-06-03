@@ -1,6 +1,6 @@
 # <p align ="center"> LAPORAN PRAKTIKUM ALGORITMA DAN STRUKTUR DATA </p>
 
-## <p align ="center"> PERTEMUAN IX <br> Tree </p>
+## <p align ="center"> PERTEMUAN XIII <br> Tree </p>
 
 <br><br><br><br>
 
