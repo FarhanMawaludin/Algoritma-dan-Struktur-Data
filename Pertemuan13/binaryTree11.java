@@ -1,3 +1,5 @@
+import coba.node11;
+
 public class binaryTree11 {
     node11 root;
     int size;
